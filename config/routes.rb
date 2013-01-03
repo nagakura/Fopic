@@ -1,4 +1,16 @@
 Fopic::Application.routes.draw do
+  resources :photos
+
+  devise_for :users
+
+  root :to => 'photos#index'
+  
+  resources :photos do
+    member do
+      get :picture
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
