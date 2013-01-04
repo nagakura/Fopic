@@ -23,6 +23,17 @@
     <%= f.label :explanation %><br />
     <%= f.text_field :explanation %>
   </div>
+  
+  <div class="field">
+    <%= f.label :day %><br />
+    <%= f.date_select :day %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eat %><br />
+    <%= f.select :eat, {"diner" => 3, "meal" => 2, "breakfast" => 1}, :prompt => "選択してください" %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
