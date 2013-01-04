@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>Title:</b>
@@ -13,8 +12,9 @@
 
 <p>
   <b>Picture:</b>
-  <%= image_tag picture_photo_path(@photo), :height => '64' %>
+  <%= image_tag picture_photo_path(@photo), :height => '240' %>
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= link_to 'Back', photos_path %> |
+<%= link_to 'Destroy', @photo, :method => :delete, :data => { :confirm => 'Are you sure?' } %>

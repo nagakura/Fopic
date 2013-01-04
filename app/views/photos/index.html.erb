@@ -1,25 +1,23 @@
 <h1>Listing photos</h1>
 
-<table>
+<table id="cal">
   <tr>
-    <th>Title</th>
-    <th>Picture data</th>
-    <th>Content type</th>
-    <th>Explanation</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="day">Mon</th>
+    <th class="day">Tue</th>
+    <th class="day">Wed</th>
+    <th class="day">Thu</th>
+    <th class="day">Fri</th>
+    <th class="day">Sat</th>
+    <th class="day">Sun</th>
   </tr>
 
 <% @photos.each do |photo| %>
   <tr>
-    <td><%= photo.title %></td>
-    <td><%= photo.picture_data %></td>
-    <td><%= photo.content_type %></td>
-    <td><%= photo.explanation %></td>
-    <td><%= link_to 'Show', photo %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td>
+    <%= photo.created_at %>
+    <br/>
+    <%= link_to image_tag(picture_photo_path(photo), :height => '64'), photo %>
+    </td>
   </tr>
 <% end %>
 </table>

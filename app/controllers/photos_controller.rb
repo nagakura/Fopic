@@ -32,6 +32,8 @@ class PhotosController < ApplicationController
   # GET /photos/new.json
   def new
     @photo = Photo.new
+    
+    @photo.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
