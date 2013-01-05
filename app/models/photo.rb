@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :content_type, :explanation, :picture_data, :title, :picture_file, :day, :eat
+  attr_accessible :content_type, :explanation, :picture_data, :title, :picture_file, :day, :eat, :user_id
   belongs_to :user
 
   def picture_file= (p)

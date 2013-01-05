@@ -11,6 +11,7 @@ gem 'json'
 
 gem 'devise'
 gem 'event-calendar', :require => 'event_calendar'
+gem "acts_as_list"
 
 # Gems used only for assets and not required
 # in production environments by default.

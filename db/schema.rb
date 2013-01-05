@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104134153) do
+ActiveRecord::Schema.define(:version => 20130105144604) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130104134153) do
     t.integer  "user_id"
     t.date     "day"
     t.integer  "eat"
+    t.integer  "position"
   end
 
   create_table "users", :force => true do |t|

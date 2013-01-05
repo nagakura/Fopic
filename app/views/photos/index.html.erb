@@ -2,11 +2,11 @@
 
 <table id="cal">
 
-<% @photos = Photo.find(:all, :order => "day DESC, eat") %>
+<% @photos = @photos.order("day DESC").order("eat") %>
 
 <% @photos.each do |photo| %>
   <% if @day != photo.day then %> <tr> <% end %>
-    <td>
+    <td class="thum">
     <%= photo.day %>
     <% if photo.eat == 1 then %> 朝食<% end %>
     <% if photo.eat == 2 then %> 昼食<% end %>

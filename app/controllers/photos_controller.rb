@@ -9,7 +9,8 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    #@photos = Photo.all
+    @photos = User.find(current_user.id).photo
 
     respond_to do |format|
       format.html # index.html.erb
