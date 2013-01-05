@@ -1,4 +1,6 @@
 Fopic::Application.routes.draw do
+  resources :comments
+
   root :to => 'photos#index'
  
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
@@ -6,13 +8,18 @@ Fopic::Application.routes.draw do
   resources :event
 
   resources :photos
+  
 
   devise_for :users
-
   
+
   resources :photos do
     member do
       get :picture
+    end
+
+    collection do
+      get :all
     end
   end
 

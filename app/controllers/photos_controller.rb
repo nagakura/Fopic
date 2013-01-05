@@ -1,5 +1,14 @@
 class PhotosController < ApplicationController
 
+  def all
+    @photos = Photo.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @photos }
+    end
+    redirect_to("/")
+  end
+
   def picture
     @photo = Photo.find(params[:id])
     send_data(@photo.picture_data, :type => @photo.content_type)
@@ -9,14 +18,23 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    #@photos = Photo.all
-    @photos = User.find(current_user.id).photo
+    @filter = params[:filter]
+    if @filter == "all" then
+      @photos = Photo.find(:all, :order => "day DESC, eat ASC")
+    elsif @filter == "without_me" then
+      @photos = Photo.find(:all, :conditions => ["user_id not in (?)", current_user.id], :order => "day DESC, eat ASC")
+    elsif @filter == "onlu_me" then
+      @photos = Photo.find(:all, :conditions => ["user_id = ?", current_user.id], :order => "day DESC, eat ASC")
+    else
+      @photos = Photo.find(:all, :conditions => ["user_id = ?", current_user.id], :order => "day DESC, eat ASC")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @photos }
     end
   end
+  
 
   # GET /photos/1
   # GET /photos/1.json

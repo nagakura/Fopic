@@ -21,10 +21,19 @@
 </p>
 
 <p>
-  <b>せつめい</b>
   <%= @photo.explanation %>
 </p>
+<hr>
+<% @comments = @photo.comment %>
+<% @comments.each do |comment| %>
+  (<%= User.find(comment.user_id).email %>):
+  <%= comment.comment %>
+<% end %>
 
+<br/>
+<hr>
+<%= link_to "コメントする", :controller => "comments" , :action => "new", :id => @photo.id %>
+<br/>
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %> |
 <%= link_to 'Destroy', @photo, :method => :delete, :data => { :confirm => 'Are you sure?' } %>

@@ -2,7 +2,6 @@
 
 <table id="cal">
 
-<% @photos = @photos.order("day DESC").order("eat") %>
 
 <% @photos.each do |photo| %>
   <% if @day != photo.day then %> <tr> <% end %>
@@ -23,3 +22,7 @@
 <br />
 
 <%= link_to 'New Photo', new_photo_path %>
+<br/>
+<%= link_to "自分の写真を見る" , :action => "index", :filter => "only_me" %>
+<%= link_to "全ての写真を見る" , :action => "index", :filter => "all" %>
+<%= link_to "自分以外の写真を見る", :action => "index", :filter => "without_me" %>
