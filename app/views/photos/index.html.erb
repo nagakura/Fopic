@@ -2,14 +2,21 @@
 
 <table id="cal">
 
+<% @photos = Photo.find(:all, :order => "day DESC, eat") %>
+
 <% @photos.each do |photo| %>
-  <tr>
+  <% if @day != photo.day then %> <tr> <% end %>
     <td>
-    <%= photo.created_at %>
+    <%= photo.day %>
+    <% if photo.eat == 1 then %> 朝食<% end %>
+    <% if photo.eat == 2 then %> 昼食<% end %>
+    <% if photo.eat == 3 then %> 夕食<% end %>
     <br/>
     <%= link_to image_tag(picture_photo_path(photo), :height => '64'), photo %>
+    
     </td>
-  </tr>
+  <% @day = photo.day %>
+  <% if @day != photo.day then %> <tr> <% end %>
 <% end %>
 </table>
 

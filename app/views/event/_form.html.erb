@@ -1,0 +1,48 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    
+
+      
+<%= PLURALIZE(@EVENT.ERRORS.COUNT, "ERROR") %> PROHIBITED THIS POST FROM BEING SAVED:
+
+
+
+      
+
+      <% @event.errors.full_messages.each do |msg| %>
+        
+<%= msg %>
+
+      <% end %>
+      
+
+    
+
+  <% end %>
+
+  
+
+    <%= f.label :name %>
+
+    <%= f.text_field :name %>
+  
+
+  
+
+    <%= f.label :start_at %>
+
+    <%= f.datetime_select :start_at %>
+  
+
+
+    <%= f.label :end_at %>
+
+    <%= f.datetime_select :end_at %>
+  
+
+  
+
+    <%= f.submit %>
+  
+
+<% end %>

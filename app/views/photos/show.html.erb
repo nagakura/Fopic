@@ -1,18 +1,28 @@
 
 <p>
-  <b>Title:</b>
+  <b>タイトル</b>
   <%= @photo.title %>
 </p>
 
 
 <p>
-  <b>Explanation:</b>
-  <%= @photo.explanation %>
+  <%= @photo.day %>
 </p>
 
 <p>
-  <b>Picture:</b>
+  <% if @photo.eat==1 then %> 朝食 <% end %> 
+  <% if @photo.eat==2 then %> 昼食 <% end %>
+  <% if @photo.eat==3 then %> 夜食 <% end %>
+  
+</p>
+
+<p>
   <%= image_tag picture_photo_path(@photo), :height => '240' %>
+</p>
+
+<p>
+  <b>せつめい</b>
+  <%= @photo.explanation %>
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |

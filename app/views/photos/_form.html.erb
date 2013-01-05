@@ -31,7 +31,8 @@
 
   <div class="field">
     <%= f.label :eat %><br />
-    <%= f.select :eat, {"diner" => 3, "meal" => 2, "breakfast" => 1}, :prompt => "選択してください" %>
+    <% options = [["朝食", 1], ["昼食", 2], ["夕食", 3]] %>
+    <%= f.select :eat ,options %>
   </div>
 
   <div class="actions">
