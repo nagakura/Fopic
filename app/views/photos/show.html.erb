@@ -28,6 +28,7 @@
 <% @comments.each do |comment| %>
   (<%= User.find(comment.user_id).email %>):
   <%= comment.comment %>
+  <br/>
 <% end %>
 
 <br/>
